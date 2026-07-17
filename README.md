@@ -173,8 +173,8 @@ public/
 **Sai Teja**
 
 * 📧 Email: **[chsaitej50@gmail.com](mailto:chsaitej50@gmail.com)**
-* 💼 LinkedIn: *Add your LinkedIn profile*
-* 🐙 GitHub: *Add your GitHub profile*
+* 💼 LinkedIn: *https://www.linkedin.com/in/sai-teja-057213283*
+* 🐙 GitHub: *https://github.com/ChSaiteja123*
 
 ---
 
