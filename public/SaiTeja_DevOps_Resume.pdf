@@ -1,0 +1,52 @@
+
+CHEEPINAPI SAI TEJA
+DevOps Engineer  |  Cloud Infrastructure  |  Automation & SRE
+📍 Andhra Pradesh, India   |   GitHub: github.com/ChSaiteja123   |   AWS Certified Cloud Practitioner
+PROFESSIONAL SUMMARY
+Results-driven DevOps Engineer with hands-on experience designing and implementing end-to-end CI/CD pipelines, cloud infrastructure on AWS, and container orchestration with Kubernetes. Proficient in Infrastructure as Code (Terraform, Ansible), GitOps workflows (ArgoCD), and DevSecOps practices including automated security scanning. Passionate about Platform Engineering, SRE principles, and reducing toil through automation.
+TECHNICAL SKILLS
+Cloud	AWS (EC2, EKS, S3, IAM, VPC, CloudWatch, RDS)
+CI/CD	Jenkins, GitLab CI, GitHub Actions, ArgoCD
+Containers	Docker, Kubernetes (EKS, kubeadm), Helm
+IaC & Automation	Terraform, Ansible
+Monitoring	Prometheus, Grafana, AlertManager, ELK Stack
+Security	SonarQube, Trivy, OWASP, DevSecOps pipelines
+Languages	Python, Bash/Shell scripting
+Version Control	Git, GitHub, GitLab
+OS	Linux (Ubuntu, RHEL, CentOS), Windows Server
+PROFESSIONAL EXPERIENCE
+DevOps Engineer  |  Self-Employed / Freelance Projects  |  Remote — India
+2023 – Present
+●	Designed and deployed end-to-end DevSecOps pipelines using Jenkins, integrating SonarQube quality gates, Trivy container vulnerability scanning, and automated Docker image builds.
+●	Provisioned and managed AWS EKS clusters; configured Kubernetes workloads (Deployments, Services, Ingress, HPA) for high-availability microservices.
+●	Implemented GitOps deployment workflows with ArgoCD for continuous delivery, reducing deployment time by ~40%.
+●	Automated infrastructure provisioning on AWS using Terraform and configuration management with Ansible, achieving full IaC coverage.
+●	Set up centralized monitoring with Prometheus and Grafana dashboards, configuring AlertManager for proactive incident response.
+●	Containerized a Django application using multi-stage Docker builds, Nginx reverse proxy, and PostgreSQL, streamlining local and production environments.
+●	Maintained CI/CD pipeline reliability and troubleshot build failures across Jenkins, Docker, and Kubernetes environments.
+FEATURED PROJECTS
+End-to-End DevSecOps Pipeline  —  Jenkins · Docker · SonarQube · Trivy · Kubernetes · ArgoCD
+●	Built a complete DevSecOps pipeline integrating source code quality analysis (SonarQube), security scanning (Trivy), Docker image build & push, and Kubernetes deployment.
+●	Configured ArgoCD for GitOps-based continuous deployment, syncing cluster state with Git repository on every merge.
+●	Enforced quality gates to block insecure or low-quality builds from reaching production, reducing vulnerabilities in deployed images.
+AWS EKS Production Deployment  —  AWS EKS · Jenkins · Prometheus · Grafana · Helm
+●	Provisioned a production-grade EKS cluster on AWS using Terraform; integrated with Jenkins for automated deployment workflows.
+●	Deployed Kubernetes workloads with Helm charts and configured Horizontal Pod Autoscaling based on Prometheus metrics.
+●	Built Grafana dashboards for cluster-level and application-level observability; configured alerts for resource utilization thresholds.
+Dockerized Django Application  —  Docker · Nginx · PostgreSQL · CI/CD
+●	Created a multi-stage Dockerfile to minimize production image size; configured Nginx as a reverse proxy to the Django WSGI server.
+●	Integrated PostgreSQL as the database backend using Docker Compose, with environment-variable-driven configuration for portability.
+●	Automated the build-test-push lifecycle using Jenkins, enabling one-click deploys to staging and production environments.
+
+
+
+EDUCATION
+JNTUACEK - B.Tech (2019-2023)
+Viswasai jr college – Intermediate (2017-2019)
+St.Joseph's E.M. High School - SSC (2017)
+CERTIFICATIONS & LEARNING
+●	AWS Certified Cloud Practitioner
+●	Advanced Kubernetes & GitOps (In Progress)
+●	Actively learning SRE, DevSecOps, and Platform Engineering practices
+AREAS OF INTEREST
+Cloud Infrastructure  •  Site Reliability Engineering (SRE)  •  DevSecOps  •  Platform Engineering  •  Kubernetes & GitOps  •  Infrastructure Automation
