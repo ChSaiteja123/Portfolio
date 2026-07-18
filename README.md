@@ -196,15 +196,6 @@ Portfolio
 └── README.md
 ```
 
-## Screenshots
-
-| Jenkins                  | SonarQube             | Trivy                 | Docker                 |
-| ------------------------ | --------------------- | --------------------- | ---------------------- |
-| ![](images/pipeline.png) | ![](images/sonar.png) | ![](images/trivy.png) | ![](images/docker.png) |
-
-| AWS ECR             | Amazon EKS          | Kubernetes Pods      | Live Application    |
-| ------------------- | ------------------- | -------------------- | ------------------- |
-| ![](images/ecr.png) | ![](images/eks.png) | ![](images/pods.png) | ![](images/app.png) |
 
 # 📚 Table of Contents
 
