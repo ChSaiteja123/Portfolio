@@ -31,34 +31,25 @@ Production Ready • Jenkins • SonarQube • Trivy • Docker • AWS ECR • 
 
 ```text
 ██████████████████████████████████████
-
-✔ Checkout
-
-██████████████████████████████████████
-
-✔ SonarQube Scan
+✅ Checkout
 
 ██████████████████████████████████████
-
-✔ Quality Gate
-
-██████████████████████████████████████
-
-✔ Trivy Scan
+✅ SonarQube Scan
 
 ██████████████████████████████████████
-
-✔ Docker Build
-
-██████████████████████████████████████
-
-✔ Push to ECR
+✅ Quality Gate
 
 ██████████████████████████████████████
+✅ Trivy Scan
 
-✔ Deploy to EKS
+██████████████████████████████████████
+✅ Docker Build
 
+██████████████████████████████████████
+✅ Push to AWS ECR
 
+██████████████████████████████████████
+✅ Deploy to Amazon EKS
 ---
 
 # 5. Modern Architecture Diagram
@@ -99,9 +90,11 @@ Docker --> ECR
 ECR --> EKS
 
 EKS --> Users
-
+```
 
 ##Sequence Diagram
+```mermaid
+
 
 sequenceDiagram
 
@@ -139,7 +132,10 @@ AWS ECR->>Amazon EKS: Pull Image
 
 Amazon EKS-->>Dev: Deployment Successful
 
-flowchart LR
+
+```
+##flowchart LR
+```mermaid
 
 A[GitHub Push]
 
@@ -184,7 +180,12 @@ I --> J
 J --> K
 
 
+```
+
 ##Kubernetes Architecture
+
+```mermaid
+
 
 graph TD
 
@@ -214,7 +215,10 @@ Deployment --> Pod2
 
 Deployment --> Pod3
 
+```
 ##AWS Infrastructure
+```mermaid
+
 
 graph LR
 
@@ -244,122 +248,102 @@ Amazon_EKS --> EC2
 
 Internet --> Amazon_EKS
 
-##Repository Tree
-#Portfolio
 
+```
+
+Portfolio
+│
 ├── Jenkinsfile
-
 ├── Dockerfile
-
 ├── package.json
-
 ├── package-lock.json
-
 ├── vite.config.js
-
 ├── src/
-
 ├── public/
-
 ├── images/
-
 │   ├── banner.png
-
 │   ├── architecture.png
-
 │   ├── pipeline.png
-
 │   ├── sonar.png
-
 │   ├── trivy.png
-
 │   ├── docker.png
-
 │   ├── ecr.png
-
 │   ├── eks.png
-
 │   ├── pods.png
-
 │   └── app.png
-
 ├── k8s/
-
 │   ├── deployment.yaml
-
 │   └── service.yaml
-
 └── README.md
 
 
-
-## 📸 Pipeline Screenshots
-
-| Jenkins | SonarQube |
-|---------|-----------|
+| Jenkins                  | SonarQube             |
+| ------------------------ | --------------------- |
 | ![](images/pipeline.png) | ![](images/sonar.png) |
-
-| Trivy | Docker |
-|-------|--------|
+| Trivy                 | Docker                 |
+| --------------------- | ---------------------- |
 | ![](images/trivy.png) | ![](images/docker.png) |
 
-| AWS ECR | Amazon EKS |
-|---------|------------|
+| AWS ECR             | Amazon EKS          |
+| ------------------- | ------------------- |
 | ![](images/ecr.png) | ![](images/eks.png) |
-
-| Pods | Live Application |
-|------|------------------|
+| Kubernetes Pods      | Live Application    |
+| -------------------- | ------------------- |
 | ![](images/pods.png) | ![](images/app.png) |
 
 
 # 📚 Table of Contents
 
-- [Overview](#overview)
-- [Architecture](#architecture)
-- [Pipeline Workflow](#pipeline-workflow)
-- [Pipeline Stages](#pipeline-stages)
-- [Project Structure](#project-structure)
-- [AWS Infrastructure](#aws-infrastructure)
-- [Jenkins Pipeline](#jenkins-pipeline)
-- [Deployment](#deployment)
-- [Screenshots](#screenshots)
-- [Troubleshooting](#troubleshooting)
-- [Author](#author)
+Overview
+Architecture
+Pipeline Workflow
+Pipeline Stages
+Project Structure
+AWS Infrastructure
+Jenkins Pipeline
+Deployment
+Screenshots
+Troubleshooting
+Author
 
 
+
+##🔐 DevSecOps Workflow
 Developer
-     │
-     ▼
- GitHub Repository
-     │
-     ▼
- Jenkins Pipeline
-     │
-     ├──────────────► SonarQube
-     │                     │
-     │                     ▼
-     │              Quality Gate
-     │
-     ├──────────────► Trivy
-     │                     │
-     │                     ▼
-     │              Security Scan
-     │
-     ▼
- Docker Build
-     │
-     ▼
- AWS ECR
-     │
-     ▼
- Amazon EKS
-     │
-     ▼
- Kubernetes Pods
-     │
-     ▼
- Application
-
+    │
+    ▼
+GitHub Repository
+    │
+    ▼
+Jenkins Pipeline
+    │
+    ├────────────► SonarQube
+    │                 │
+    │                 ▼
+    │          Quality Gate
+    │
+    ├────────────► Trivy
+    │                 │
+    │                 ▼
+    │         Security Scan
+    │
+    ▼
+Docker Build
+    │
+    ▼
+AWS ECR
+    │
+    ▼
+Amazon EKS
+    │
+    ▼
+Kubernetes Deployment
+    │
+    ▼
+Pods
+    │
+    ▼
+Live Application
 
 ## ✅ Features
 
