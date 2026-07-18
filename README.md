@@ -55,7 +55,7 @@ Production Ready • Jenkins • SonarQube • Trivy • Docker • AWS ECR • 
 #  Modern Architecture Diagram
 
 ```mermaid
-
+graph LR
 Developer((Developer))
 
 GitHub((GitHub))
