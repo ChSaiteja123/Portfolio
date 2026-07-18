@@ -1,5 +1,5 @@
 <p align="center">
-<img src="https://img.freepik.com/free-vector/half-tone-blue-abstract-background-with-text-space_1017-41428.jpg" width="100%">
+<img src="banner.jpg"height="20%", width="100%">
 </p>
 
 <h1 align="center">
