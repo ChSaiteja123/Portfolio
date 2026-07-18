@@ -1,11 +1,15 @@
 pipeline {
   agent any
-
+    tools{
+        nodejs 'npm'
+        
+    }
   environment {
     AWS_REGION = 'us-east-1'
     ECR_REPOSITORY = 'devops-portfolio'
     IMAGE_TAG = "${env.BUILD_NUMBER}"
     K8S_NAMESPACE = 'default'
+    SCANNER_HOME=tool 'sonar-scanner'
     APP_NAME = 'devops-portfolio'
     EKS_CLUSTER_NAME = 'my-eks-cluster'
   }
@@ -17,15 +21,35 @@ pipeline {
           url: "https://github.com/ChSaiteja123/Portfolio.git"
       }
     }
-
-    stage('Install Dependencies') {
-      steps {
-        sh 'npm install'
-      }
-    }
+        stage("Sonarqube Analysis "){
+            steps{
+                withSonarQubeEnv('sonar') {
+                    sh ''' $SCANNER_HOME/bin/sonar-scanner -Dsonar.projectName=portfolio \
+                    -Dsonar.projectKey=portfolio '''
+                }
+            }
+        }
+        stage("quality gate"){
+           steps {
+                script {
+                    waitForQualityGate abortPipeline: false, credentialsId: 'sonar' 
+                }
+            } 
+        }
+        stage('Install Dependencies') {
+            steps {
+                sh "npm install"
+            }
+        }        
+        stage('TRIVY FS SCAN') {
+            steps {
+                sh "trivy fs . > trivyfs.txt"
+            }
+        }
 
     stage('Build App') {
       steps {
+         sh 'chmod +x node_modules/.bin/vite'
         sh 'npm run build'
       }
     }
@@ -35,10 +59,11 @@ pipeline {
         sh 'docker build -t ${APP_NAME}:${IMAGE_TAG} .'
       }
     }
-
+    
     stage('Login to ECR') {
       steps {
-        withCredentials([string(credentialsId: 'aws-access-key-id', variable: 'AWS_ACCESS_KEY_ID'), string(credentialsId: 'aws-secret-access-key', variable: 'AWS_SECRET_ACCESS_KEY')]) {
+          withCredentials([aws(accessKeyVariable: 'AWS_ACCESS_KEY_ID', credentialsId: 'aws-cred', secretKeyVariable: 'AWS_SECRET_ACCESS_KEY')]) {
+        
           sh '''
             export AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY_ID
             export AWS_SECRET_ACCESS_KEY=$AWS_SECRET_ACCESS_KEY
@@ -52,6 +77,7 @@ pipeline {
 
     stage('Push Image to ECR') {
       steps {
+          withCredentials([aws(accessKeyVariable: 'AWS_ACCESS_KEY_ID', credentialsId: 'aws-cred', secretKeyVariable: 'AWS_SECRET_ACCESS_KEY')]){
         sh """
           ACCOUNT_ID=\$(aws sts get-caller-identity --query Account --output text)
           ECR_URI=\${ACCOUNT_ID}.dkr.ecr.${AWS_REGION}.amazonaws.com/${ECR_REPOSITORY}
@@ -61,11 +87,12 @@ pipeline {
           docker push \${ECR_URI}:latest
         """
       }
+      }
     }
 
     stage('Deploy to EKS') {
       steps {
-        withCredentials([string(credentialsId: 'aws-access-key-id', variable: 'AWS_ACCESS_KEY_ID'), string(credentialsId: 'aws-secret-access-key', variable: 'AWS_SECRET_ACCESS_KEY')]) {
+        withCredentials([string(credentialsId: 'aws-cred')]) {
           sh """
             export AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY_ID
             export AWS_SECRET_ACCESS_KEY=$AWS_SECRET_ACCESS_KEY
