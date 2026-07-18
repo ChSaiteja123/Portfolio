@@ -52,9 +52,10 @@ Production Ready • Jenkins • SonarQube • Trivy • Docker • AWS ECR • 
 ✅ Deploy to Amazon EKS
 ---
 
-# 5. Modern Architecture Diagram
+#  Modern Architecture Diagram
 
 ```mermaid
+
 graph LR
 
 Developer((Developer))
@@ -135,6 +136,7 @@ Amazon EKS-->>Dev: Deployment Successful
 
 ```
 ##flowchart LR
+
 ```mermaid
 
 A[GitHub Push]
@@ -179,9 +181,7 @@ I --> J
 
 J --> K
 
-
 ```
-
 ##Kubernetes Architecture
 
 ```mermaid
