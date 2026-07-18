@@ -14,11 +14,7 @@ Production Ready • Jenkins • SonarQube • Trivy • Docker • AWS ECR • 
 <img src="https://skillicons.dev/icons?i=jenkins,docker,kubernetes,aws,react,nodejs,git,github,vscode"/>
 
 </p>
-<p align="center">
 
-<img src="https://go-skill-icons.vercel.app/api/icons?i=jenkins,docker,kubernetes,aws,react,nodejs,git,github"/>
-
-</p>
 
 ![GitHub last commit](https://img.shields.io/github/last-commit/ChSaiteja123/Portfolio)
 ![GitHub Repo stars](https://img.shields.io/github/stars/ChSaiteja123/Portfolio)
